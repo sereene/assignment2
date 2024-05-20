@@ -1,10 +1,15 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import {useEffect, useState} from "react";
+import axios from "axios";
 import iconImg1 from '../../src/pages/page1.jpg';
 import iconImg2 from '../../src/pages/page2.jpg';
 import iconImg3 from '../../src/pages/page3.jpg';
 
+
 const PostId = () => {
     const params = useParams();
+
+
     let imgSrc='';
     if (Number(params.postid) === 1){
          imgSrc=iconImg1;

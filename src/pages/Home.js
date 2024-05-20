@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Small from "./Small";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 const MainBox = styled.div`
   display: flex;
@@ -10,7 +12,25 @@ const MainBox = styled.div`
   height: 100vh;
   padding: 15px 15px 15px 15px;
   background-color: rgb(120, 165, 255);
+  left : 0;
+  top : 0;
+  position: fixed;
+  animation-name: ANIMATION_NAME;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  @keyframes ANIMATION_NAME{
+    0%{
+      width: 100vw;
+    }
+    100%{
+      width: 400px;
+    }
+  }
+  @media screen and (max-width: 700px){
+    background-color: crimson;
+  }
 `;
+
 
 const RightBox = styled.div`
   display: flex;
@@ -21,6 +41,7 @@ const RightBox = styled.div`
   height: 100vh;
   padding: 15px 15px 15px 15px;
   background-color: lavender;
+  margin-left: 400px;
 `;
 const Container = styled.div`
   display: flex;
@@ -53,6 +74,8 @@ const LowBar=styled.div`
 
 
 const Home = () => {
+    const [postList, setPostList] = useState([]);
+
     return (
 
         <Container>
